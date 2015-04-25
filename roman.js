@@ -1,8 +1,8 @@
 //var input = document.getElementById('input').split("");
-//var before = input.value;
-var after;
 
-// returns appropriate function to check element type
+// takes first element of array
+// returns false if type mismatch amongst all elements
+// else returns true and typeof element
 function elementsMatch(element0){
 	// check type
 	if ( isNaN(parseInt(element0)) ){ // 1st element = char
@@ -15,33 +15,31 @@ function elementsMatch(element0){
 	// check rest of array
 	for (var i = 1; i < input.length; i++){
 		if (typeof func(input[i]) != typeExpected){
-			return false;
+			return [false];
 		}
 	}
-	return true;
+	return [true, typeExpected];
 }
 
 // check for numbers or Roman numerals
-elementsMatch(input[0]);
-
-	//toNumber();
-//else
-	// false --> check all elements are numbers
-	for (var i = 0; i < input.length; i++){
-		if(parseInt(input[i])){
-			alert("Don't mix your numbers with your numerals");
-			//input.value = "";
-			return;
-		}
-	}
-	//toRoman();
-
-
-
-console.log(NaN == NaN);
-
+var matchResult = elementsMatch(input[0]);
+if (!matchResult[0]){
+	alert("Don't mix your numbers with your numerals");
+	//input.value = "";
+	return;
+}
+else{
+	matchResult[1] == 'number' ? toRoman() : toNumber();
+}
 
 
 // toNumber
-
+function toNumber(){
+	var result = "";
+	return;
+}
 // toRoman
+function toRoman(){
+	var result = "";
+	return;
+}
